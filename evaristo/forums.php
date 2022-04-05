@@ -16,7 +16,9 @@
     <h1>Forums</h1>
     <?php foreach($forums as $forum): ?>
         <h2>
-            <?php echo $forum["title"]; ?>
+            <a href="single_forum.php?id=<?php echo $forum["id"]; ?>">
+                <?php echo $forum["title"]; ?>
+            </a>
         </h2>
         <p>
             <?php echo $forum["content"]; ?>
