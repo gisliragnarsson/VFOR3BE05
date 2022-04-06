@@ -5,6 +5,9 @@
 
     $query = $pdo->query("SELECT * FROM forums WHERE id=$idVar");
     $forum = $query->fetch();
+
+    $query = $pdo->query("SELECT * FROM comments WHERE forum_id=$idVar ORDER BY id DESC");
+    $comments = $query->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,5 +28,24 @@
     <p>
         <?php echo $forum['owner']; ?> - <?php echo $forum['created_at']; ?>
     </p>
+
+    <form action="save_comment.php" method="POST">
+        <textarea name="content" rows="10"></textarea>
+
+        <input type="text" name="owner">
+
+        <input type="hidden" name="forum_id" value="<?php echo $idVar; ?>">
+
+        <button>Save comment</button>
+    </form>
+
+    <?php foreach($comments as $comment): ?>
+        <h2>
+            <?php echo $comment["owner"]; ?>
+        </h2>
+        <p>
+            <?php echo $comment["content"]; ?>
+        </p>
+    <?php endforeach; ?>
 </body>
 </html>
