@@ -28,6 +28,10 @@
     <p>
         <?php echo $forum['owner']; ?> - <?php echo $forum['created_at']; ?>
     </p>
+    <p>
+        <?php echo $forum['likes']; ?>
+        <a href="like_forum.php?id=<?php echo $idVar; ?>">Like</a>
+    </p>
 
     <form action="save_comment.php" method="POST">
         <textarea name="content" rows="10"></textarea>
