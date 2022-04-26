@@ -35,7 +35,7 @@
         <img src="header.svg" alt="Header">
     </div>
 
-    <div class="mx-20 flex mt-8">
+    <div class="mx-20 flex mt-8 mb-8">
         <div class="flex-1 pr-6">
             <?php foreach($forums as $forum): ?>
                 <div class="rounded-lg shadow-lg p-8 border border-gray-100">
